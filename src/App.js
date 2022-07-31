@@ -8,9 +8,7 @@ function App() {
   return (
     <div>
       <h1>Welcome to GameShare!</h1>
-      <h2> <a href="localhost:3001">View Games</a></h2>
-      <h2> <a href={rentalURL}>View Rentals</a></h2>
-      <h2> <a href={soldURL}>View Sold</a></h2>
+      <h2> <a href="http://localhost:3002/">Login</a></h2>
     </div>
   );
 }
