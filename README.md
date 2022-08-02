@@ -13,3 +13,19 @@ docker run \
 
 
 ```
+
+# build docker
+npm run build
+docker build . -t jackjackzhou/landingpage-frontend
+
+# push image:
+docker push jackjackzhou/landingpage-frontend
+
+# kubectl create&run
+minikube start
+kubectl create -f landingpage-frontend-deployment.yaml
+minikube tunnel
+minikube dashboard
+
+# clean up
+kubectl delete -f landingpage-frontend-deployment.yaml

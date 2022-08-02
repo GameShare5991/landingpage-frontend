@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: landingpagefrontend-deployment
+  labels:
+    app: landingpage-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: landingpage-frontend
+  template:
+    metadata:
+      labels:
+        app: landingpage-frontend
+    spec:
+      containers:
+        - name: landingpage-frontend
+          image: jackjackzhou/landingpage-frontend
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: landingpage-frontend-servies
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 3009
+    targetPort: 80
+    protocol: TCP
+    nodePort: 31009
+  selector:
+    app: landingpage-frontend
